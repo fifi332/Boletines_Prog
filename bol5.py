@@ -1,111 +1,139 @@
 # EJER 1
-texto = " Isto é Python!"
-print("longitud:", len(texto))
 
+
+for x in range(10, 21):
+    print(x)
 
 # EJER 2
-palabra = "Python"
-for caracter in palabra:
-    print(caracter)
 
 
-# Ejer 3
+Fahrenheit = float(input("grados Fahrenheit: "))
+celsius = (5 / 9) * (Fahrenheit - 32)
 
-texto = "Python para todos"
-texto_inv = texto[::-1]
-print(texto_inv)
+print("En Celsius es:", celsius)
 
+# EJER 3
+
+
+print("Fahrenheit    celsius")
+f = 0
+while f <= 120:
+    C = (5 / 9) * (f - 32)
+    print(f, "       ", C)
+    f = f + 10
 
 # EJER 4
 
-texto = "Guido Van Rossum creou Python"
-texto_sin = texto.replace(" ", "")
-print(texto_sin)
+
+ini = int(input("num inicial: "))
+fin = int(input("num final: "))
+
+for num in range(ini, fin + 1):
+    if num % 2 == 0:
+        print(num)
 
 
 # EJER 5
+def num_tri(n):
+    for i in range(1, n + 1):
+        suma = 0
+        for j in range(1, i + 1):
+            suma += j
+        print(i, "-", suma)
 
-texto = "Python Python Python"
-vocales = "aeiouAEIOU"
-cons = 0
-voc = 0
 
-for caracter in texto:
-    if caracter != " ":
-        if caracter in vocales:
-            voc += 1
-        else:
-            cons += 1
-
-print("Número de vocais:", voc)
-print("Número de consoantes:", cons)
-
+n = int(input("cuantos num tri quieres?"))
+num_tri(n)
 
 # EJER 6
 
-cadena = "www. phytonparatodos. com"
-parte1 = cadena[:12]
-parte2 = cadena[12:].strip()
-print("parte 1: " + parte1)
-print("parte 2: " + parte2)
-nueva = parte1 + parte2
-print(nueva)
+import math
+def factorial():
+    m = int(input("¿Cuántos quieres?: "))
 
+    for orden in range(1, m + 1):
+        n = int(input("Valor " + str(orden) + ": "))
+        resultado = 1
+
+        for i in range(1, n + 1):
+            resultado *= i
+
+        print("Valor", orden, ":", n, "Factorial:", resultado)
+
+
+factorial()
 
 # EJER 7
 
-cadena = "Pythoneros"
-cadena_mayus = cadena.upper()
-print("Mayúsculas:", cadena_mayus)
-cadena_minus = cadena_mayus.lower()
-print("Minúsculas:", cadena_minus)
+
+for i in range(0, 7):
+    for num in range(0, 7):
+        print(i, "|", num)
 
 
 # EJER 8
+def ocho():
+    n = int(input("valor maximo de n: "))
+    for i in range(0, n + 1):
+        for num in range(0, n + 1):
+            print(i, "|", num)
 
-cad1 = "Python"
-cad2 = "JavaScript"
 
-if cad1 == cad2:
-    print("son iguales")
-else:
-    print("son diferentes")
+print(ocho())
 
 
 # EJER 9
+def contar():
+    negativos = 0
+    positivos = 0
+    ceros = 0
 
-cad = "Jeve jeve jeve"
-cad_mod = cad.replace("e", "a")
-print(cad_mod)
+    print("Introduce 10 números enteiros:")
+    for _ in range(10):
+        num = int(input())
+        if num < 0:
+            negativos += 1
+        elif num > 0:
+            positivos += 1
+        else:
+            ceros += 1
 
-def verificarFormatoData(data):
-    verificacion = False
-    data = data.strip()
-    if len(data) == 10:
-        if data[2] == '/' and data[5] == '/':
-            dataseparada = data.split('/')
-            if len(dataseparada[0]) == 2 and len(dataseparada[1]) == 2 and len(dataseparada[2]) == 4:
-                if dataseparada[0].isdecimal() and dataseparada[1].isdecimal() and dataseparada[2].isdecimal():
-                    dia = int(dataseparada[0])
-                    mes = int(dataseparada[1])
-                    ano = int(dataseparada[2])
-                    if 1 <= dia <= 31 and 1 <= mes <= 12 and ano >= 1900:
-                        verificacion = True
-    return verificacion
+    print("Negativos:", negativos)
+    print("Positivos:", positivos)
+    print("Ceros:", ceros)
 
-print(verificarFormatoData("29/02/2020"))
-print(verificarFormatoData("31/04/2021"))
-print(verificarFormatoData("15-08-1947"))
+
+contar()
 
 
 # EJER 10
+def area_rectangulo():
+    base = -1
+    altura = -1
 
-s = "Ola, son alumno de DAM1, e son programador desde o 2025"
-letras = sum(1 for c in s if c.isalpha())
-digitos = sum(1 for c in s if c.isdigit())
-espazos = sum(1 for c in s if c.isspace())
+    while base <= 0:
+        base = int(input(" base positiva: "))
+        if base <= 0:
+            print("positiva.")
 
-print("Cadea:", s)
-print("Letras:", letras)
-print("Díxitos:", digitos)
-print("Espazos en branco:", espazos)
+    while altura <= 0:
+        altura = int(input("altura positiva: "))
+        if altura <= 0:
+            print("positiva.")
+
+    area = base * altura
+    print("area: ", area)
+
+
+area_rectangulo()
+
+# EJER 11
+while True:
+    numero = int(input("un numero (0 pa salir): "))
+    if numero == 0:
+        print("fin")
+        break
+    print("tabla de", numero, ":")
+    for i in range(1, 11):
+        print(str(numero) + " x " + str(i) + " = " + str(numero * i))
+    print("-" * 25)
