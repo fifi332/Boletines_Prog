@@ -3,8 +3,8 @@ import random
 def generar_contraseña(longitud=8):
     if longitud < 6:
         longitud = 6
-    if longitud > 12:
-        longitud = 12
+    if longitud > 18:
+        longitud = 18
 
     mayus = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'
     minus = 'abcdefghijklmñopqrstuvwxyz'
